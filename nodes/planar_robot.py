@@ -12,10 +12,12 @@ def planar_robot():
     l1 = 1
     l2 = 1
     t0 = rospy.get_time() 
+    js = JointState()
     
     while not rospy.is_shutdown():
 
         t1 = rospy.get_time()
+        t2 = rospy.Time.now()
         t3 = t0 - t1
         t= float(t3)
         xpos = 0.5*math.cos((2*math.pi*t)/5.0)+1.25
@@ -35,14 +37,20 @@ def planar_robot():
         print ypos
 
         theta_input= [theta1,theta2]
-        header= t1
+        header= t2
         name=['joint1','joint2']
+
+        js.header.stamp = header
+        js.position = theta_input
+        js.name = name
+
+
         
 
-        js = JointState() 
+         
         
         rospy.loginfo(js)
-        pub.publish(header,name,theta_input,[])
+        pub.publish(js)
         rate.sleep()
 
 
