@@ -62,7 +62,7 @@ def planar_robot():
         js.name = name
 
         
-        rate = rospy.Rate(40) # 40hz
+        rate = rospy.Rate(50) # 50hz
 
         rospy.loginfo(js)
         pub.publish(js)
