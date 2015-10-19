@@ -19,7 +19,7 @@ This node publishes a`visualization_msgs/Marker` message at a rate of 10 Hz and 
 This launch file permits the option to use a GUI with `joint_state_publisher` and automatically starts the `planar_robot.py` and `planar_robot_listener.py` nodes along with [rviz] and `robot_state_publisher`
 
 #----Other Notes----
-* Inverse Kinematic Equations taken from Lecturer Damian Gordon (Dublin Institute of Technology) presentation (![link](http://www.slideshare.net/DamianGordon1/forward-kinematics))
+* Inverse Kinematic Equations taken from Lecturer Damian Gordon (Dublin Institute of Technology) presentation ![link](http://www.slideshare.net/DamianGordon1/forward-kinematics)
 
 * Some portion of code was based off work from trep_puppet_demo project
 

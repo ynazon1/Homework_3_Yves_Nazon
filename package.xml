@@ -6,6 +6,7 @@
 
   <license>BSD</license>
 
+rospy geometry_msgs sensor_msgs std_msgs visualization_msgs tf
 
  <!-- <author>Yves Nazon II</author>
 
@@ -13,24 +14,20 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <!- Dependencies needed to compile this package. ->
-  <build_depend>roscpp</build_depend>
-  <build_depend>roslib</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>geometry_msgs</build_depend>
   <build_depend>sensor_msgs</build_depend>
-  <build_depend>std_srvs</build_depend>
-  <build_depend>interactive_markers</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>visualization_msgs</build_depend>
   <build_depend>tf</build_depend>
   <build_depend>common_rosdeps</build_depend>
 
   <!- Dependencies needed after this package is compiled. ->
-  <run_depend>roscpp</run_depend>
-  <run_depend>roslib</run_depend>
   <run_depend>rospy</run_depend>
   <run_depend>geometry_msgs</run_depend>
   <run_depend>sensor_msgs</run_depend>
-  <run_depend>std_srvs</run_depend>
-  <run_depend>interactive_markers</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>visualization_msgs</run_depend>
   <run_depend>tf</run_depend>
   <run_depend>common_rosdeps</run_depend> -->
 
