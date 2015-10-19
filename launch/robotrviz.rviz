@@ -5,7 +5,7 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /TF1
+        - /RobotModel1/Links1
         - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 349
@@ -77,7 +77,7 @@ Visualization Manager:
         link3:
           Alpha: 1
           Show Axes: false
-          Show Trail: false
+          Show Trail: true
           Value: true
       Name: RobotModel
       Robot Description: robot_description
@@ -135,7 +135,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 16.8603
+      Distance: 14.8371
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1

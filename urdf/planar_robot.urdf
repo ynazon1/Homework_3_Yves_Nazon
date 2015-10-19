@@ -40,7 +40,7 @@
       <geometry>
         <cylinder length="0.1" radius="0.1"/>
       </geometry>
-      <material name="Other">
+      <material name="Gray">
        <color rgba="0.5 0.5 0.5 0.5"/>
       </material>
     </visual>
