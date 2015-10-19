@@ -7,14 +7,14 @@ import geometry_msgs.msg
 import visualization_msgs.msg 
 
 if __name__ == '__main__':
-    rospy.init_node('planar_robot')
+    rospy.init_node('planar_robot_listener')
 
     listener = tf.TransformListener()
 
 
 
     end_eff = rospy.Publisher('marker', visualization_msgs.msg.Marker, queue_size=1)
-
+    ee = rospy.Publisher('stuff', geometry_msgs.msg.Point, queue_size=1)
     rate = rospy.Rate(10.0)
     while not rospy.is_shutdown():
         try:
@@ -25,12 +25,11 @@ if __name__ == '__main__':
         xtrans = trans[0]
         ytrans = trans[1]
 
-        vm = visualization_msgs.msg.Marker()
-        vm.xtrans.x = xtrans
-        vm.ytrans.y = ytrans
-        end_eff.publish(vm)
+        print xtrans
+        print ytrans
 
-        marker = Marker()
+        vm = visualization_msgs.msg.Marker()
+        marker = vm
         marker.header.frame_id = "base_link"
         marker.header.stamp = rospy.Time(0);
         marker.ns = "marker_uno";
@@ -46,5 +45,14 @@ if __name__ == '__main__':
         marker.color.r = 0.0
         marker.color.g = 1.0
         marker.color.b = 0.0
+        #vm.xtrans.x = xtrans
+        #vm.ytrans.y = ytrans
+        
+        gm = geometry_msgs.msg.Point 
+        gm.x = xtrans
+        gm.y = ytrans
+
+        ee.publish(gm)
+        end_eff.publish(vm)
 
         rate.sleep()
