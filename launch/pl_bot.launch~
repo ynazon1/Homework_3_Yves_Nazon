@@ -5,7 +5,7 @@
 	<param name="robot_description" textfile="$(find hw2)/planar_robot.urdf" />
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find hw2)/launch/startup.rviz" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find hw2)/launch/startup.rviz" required="True" />
 	<node name="planar_robot" pkg="hw2" type="planar_robot.py"
 		output="screen" respawn="true" /> 
 
