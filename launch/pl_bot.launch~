@@ -1,5 +1,4 @@
 <launch>
-	
 	<arg name="gui" default="True" />
 	<param name="use_gui" value="$(arg gui)"/>
 	<param name="robot_description" textfile="$(find hw2)/planar_robot.urdf" />
@@ -10,5 +9,4 @@
 		output="screen" respawn="true" />
         <node name="planar_robot_listener" pkg="hw2" type="planar_robot_listener.py"
                 output="screen" respawn="true" />
-
 </launch>

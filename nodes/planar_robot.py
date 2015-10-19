@@ -53,9 +53,9 @@ def planar_robot():
         psi = math.atan2(l2*math.sin(theta2),(l1+l2*math.cos(theta2)))
         theta1 = phi - psi
 
-        theta_input= [theta1,theta2,theta2]
-        header= t2
-        name=['joint1','joint2','joint3']
+        theta_input = [theta1,theta2,theta2]
+        header = t2
+        name =['joint1','joint2','joint3']
 
         js.header.stamp = header
         js.position = theta_input

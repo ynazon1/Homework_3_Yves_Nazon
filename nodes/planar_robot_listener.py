@@ -1,23 +1,50 @@
-#!/usr/bin/env python
+#!/usr/bin/env python  
 import rospy
-from std_msgs.msg import String
-
-def callback(data):
-    rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
-    
-def listener():
-
-    # In ROS, nodes are uniquely named. If two nodes with the same
-    # node are launched, the previous one is kicked off. The
-    # anonymous=True flag means that rospy will choose a unique
-    # name for our 'listener' node so that multiple listeners can
-    # run simultaneously.
-    rospy.init_node('listener', anonymous=True)
-
-    rospy.Subscriber("chatter", String, callback)
-
-    # spin() simply keeps python from exiting until this node is stopped
-    rospy.spin()
+import math
+import tf
+from sensor_msgs.msg import JointState
+import geometry_msgs.msg
+import visualization_msgs.msg 
 
 if __name__ == '__main__':
-    listener()
+    rospy.init_node('planar_robot')
+
+    listener = tf.TransformListener()
+
+
+
+    end_eff = rospy.Publisher('marker', visualization_msgs.msg.Marker, queue_size=1)
+
+    rate = rospy.Rate(10.0)
+    while not rospy.is_shutdown():
+        try:
+            (trans,rot) = listener.lookupTransform('base_link', 'link3', rospy.Time(0))
+        except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
+            continue
+
+        xtrans = trans[0]
+        ytrans = trans[1]
+
+        vm = visualization_msgs.msg.Marker()
+        vm.xtrans.x = xtrans
+        vm.ytrans.y = ytrans
+        end_eff.publish(vm)
+
+        marker = Marker()
+        marker.header.frame_id = "base_link"
+        marker.header.stamp = rospy.Time(0);
+        marker.ns = "marker_uno";
+        marker.id = 0;
+        marker.type = 4
+        marker.pose.position.x = xtrans
+        marker.pose.position.y = ytrans
+        marker.pose.position.z = 0
+        marker.point.position.x = xtrans
+        marker.point.position.y = ytrans
+        marker.point.position.z = 0.0
+        marker.color.a = 1.0 #Don't forget to set the alpha!
+        marker.color.r = 0.0
+        marker.color.g = 1.0
+        marker.color.b = 0.0
+
+        rate.sleep()
