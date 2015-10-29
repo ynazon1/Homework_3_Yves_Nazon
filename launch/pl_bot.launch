@@ -1,12 +1,12 @@
 <launch>
-	<arg name="gui" default="True" />
-	<param name="use_gui" value="$(arg gui)"/>
-	<param name="robot_description" textfile="$(find hw2)/urdf/planar_robot.urdf" />
-	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find hw2)/launch/robotrviz.rviz" required="True" />
-	<node name="planar_robot" pkg="hw2" type="planar_robot.py"
+  <arg name="gui" default="True" />
+  <param name="robot_description" textfile="$(find hw2)/urdf/planar_robot.urdf" />
+  <!-- <param name="use_gui" value="$(arg gui)"/> -->
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node> -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find hw2)/launch/robotrviz.rviz" required="True" />
+  <node name="planar_robot" pkg="hw2" type="planar_robot.py"
 		output="screen" respawn="false" />
-        <node name="planar_robot_listener" pkg="hw2" type="planar_robot_listener.py"
-                output="screen" respawn="true" />
+  <node name="planar_robot_listener" pkg="hw2" type="planar_robot_listener.py"
+        output="screen" respawn="true" />
 </launch>
