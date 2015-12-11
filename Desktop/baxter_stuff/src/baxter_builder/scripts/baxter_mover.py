@@ -133,6 +133,15 @@ def move_to_vision():
     pose.orientation = Quaternion(1.00, 0.0, 0.00, 0.00)
     pose.position = Point(0.712, 0.316, 0.250)
 
+
+    path = '/home/ynazon1/Pictures/green_success.png' 
+    img = cv2.imread(path)
+    msg = cv_bridge.CvBridge().cv2_to_imgmsg(img, encoding="bgr8")
+    pubpic = rospy.Publisher('/robot/xdisplay', Image, latch=True, queue_size=1)
+    pubpic.publish(msg)
+    # Sleep to allow for image to be published.
+    rospy.sleep(1)
+
     # Request service
     request_pose(pose,"left", left_group)
 
