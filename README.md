@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # homework-2-ynazon1
 <<<<<<< HEAD
 =======
@@ -29,3 +30,6 @@ This launch file permits the option to use a GUI with `joint_state_publisher` an
 
 
 >>>>>>> 6f01e3932c77e7138be81b00b00ef3b41296174d
+=======
+# Homework_3_Yves_Nazon
+>>>>>>> 3b93257774f880ac01180cc202e9a985bf2e86c9
